@@ -91,9 +91,9 @@ if fabricante_button:  # se clicar no botão
 
 if tp_button:
     # Criar o gráfico de pizza
-    type_counts = df_info_car['type'].value_counts()
+    type_counts = df_info_car['brand'].value_counts()
     fig = px.pie(names=type_counts.index, values=type_counts.values,
-                 title='Distribuição por Tipo de Veículo')
+                 title='Distribuição por Marca de Veículo')
     st.plotly_chart(fig)
 
 st.write("")
