@@ -27,12 +27,8 @@ fabricante_counts = df_fabricante['fabricante'].value_counts()
 df_fabricante_counts = pd.DataFrame(
     {'fabricante': fabricante_counts.index, 'count': fabricante_counts.values})
 
-
-col1 = st.columns(1)
-
 # Adicionar botão de histograma 
-with col1:
-    hist_button = st.button('Criar Grafico de Histograma')
+hist_button = st.button('Criar Grafico de Histograma')
 
 if hist_button:  # se clicar no botão 
     # escrever  mensagem
@@ -52,14 +48,8 @@ st.markdown('<h3>Condição do Veículo x Ano de Fabricação</h3>', unsafe_allo
 hist_data = df_info_car[['model','condition']].dropna()
 fig = px.histogram(hist_data, x='model', color='condition')
 st.plotly_chart(fig)
-
-col1 = st.columns(1)
-
 # Adicionar botão de histograma
-with col1:
-    fabricante_button = st.button('Gráfico por Fabricante')
-
-   
+fabricante_button = st.button('Gráfico por Fabricante')
 
 if fabricante_button:  # se clicar no botão
     # Plotar gráficos 
