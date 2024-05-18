@@ -1,4 +1,4 @@
-import streamlit as st # type: ignore
+ import streamlit as st # type: ignore
 import pandas as pd # type: ignore
 import plotly.express as px # type: ignore
 
@@ -28,16 +28,11 @@ df_fabricante_counts = pd.DataFrame(
     {'fabricante': fabricante_counts.index, 'count': fabricante_counts.values})
 
 
-# Dividir a tela em duas colunas
-col1, col2 = st.columns(2)
+col1 = st.columns(1)
 
-# Adicionar botão de histograma à primeira coluna
+# Adicionar botão de histograma 
 with col1:
     hist_button = st.button('Criar Grafico de Histograma')
-
-# Adicionar botão de dispersão à segunda coluna
-with col2:
-    disp_button = st.button('Criar Gráfico de Disperção')
 
 if hist_button:  # se clicar no botão 
     # escrever  mensagem
@@ -50,17 +45,6 @@ if hist_button:  # se clicar no botão
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
 
-
-if disp_button:  # se clicar no botão 
-    # escrever mensagem
-    st.write(
-        'Gráfico de disperção para o conjunto de informacoes de veiculos')
-    # criar  gráfico
-    fig = px.scatter(df_info_car, x="mileage", y="price")
-
-    # exibir um gráfico Plotly interativo
-    st.plotly_chart(fig, use_container_width=True)
-
 st.write("")
 
 st.markdown('<h3>Condição do Veículo x Ano de Fabricação</h3>', unsafe_allow_html=True)
@@ -69,17 +53,13 @@ hist_data = df_info_car[['model','condition']].dropna()
 fig = px.histogram(hist_data, x='model', color='condition')
 st.plotly_chart(fig)
 
+col1 = st.columns(1)
 
-# Dividir a tela em duas colunas
-col1, col2 = st.columns(2)
-
-# Adicionar botão de histograma à primeira coluna
+# Adicionar botão de histograma
 with col1:
     fabricante_button = st.button('Gráfico por Fabricante')
 
-# Adicionar botão de dispersão à segunda coluna
-with col2:
-    tp_button = st.button("Gráfico por Marca de Veículo")
+   
 
 if fabricante_button:  # se clicar no botão
     # Plotar gráficos 
@@ -88,13 +68,6 @@ if fabricante_button:  # se clicar no botão
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
-
-if tp_button:
-    # Criar o gráfico de pizza
-    type_counts = df_info_car['brand'].value_counts()
-    fig = px.pie(names=type_counts.index, values=type_counts.values,
-                 title='Distribuição por Marca de Veículo')
-    st.plotly_chart(fig)
 
 st.write("")
  
