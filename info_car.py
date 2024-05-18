@@ -45,7 +45,7 @@ if hist_button:  # se clicar no botão
         'Histograma para o conjunto de informacoes de veiculos')
 
     # criar  histograma
-    fig = px.histogram(df_info_car, x="odometer")
+    fig = px.histogram(df_info_car, x="mileage")
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
@@ -56,7 +56,7 @@ if disp_button:  # se clicar no botão
     st.write(
         'Gráfico de disperção para o conjunto de informacoes de veiculos')
     # criar  gráfico
-    fig = px.scatter(df_info_car, x="odometer", y="price")
+    fig = px.scatter(df_info_car, x="mileage", y="price")
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
