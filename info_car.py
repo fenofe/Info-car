@@ -79,7 +79,7 @@ with col1:
 
 # Adicionar botão de dispersão à segunda coluna
 with col2:
-    tp_button = st.button("Gráfico por Tipo de Veículo")
+    tp_button = st.button("Gráfico por Marca de Veículo")
 
 if fabricante_button:  # se clicar no botão
     # Plotar gráficos 
