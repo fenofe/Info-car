@@ -43,7 +43,7 @@ if hist_button:  # se clicar no botão
 
 st.write("")
 
-st.markdown('<h3>Condição do Veículo x Ano de Fabricação</h3>', unsafe_allow_html=True)
+st.markdown('<h3>Condição do Veículo x Modelo do Veiculo </h3>', unsafe_allow_html=True)
 # Remover linhas com valores ausentes
 hist_data = df_info_car[['model','condition']].dropna()
 fig = px.histogram(hist_data, x='model', color='condition')
