@@ -3,7 +3,7 @@ import pandas as pd # type: ignore
 import plotly.express as px # type: ignore
 
 #criando um DataFrame com o arquivo solicitado
-df_info_car = pd.read_csv('datasets/vehicles_us.csv')
+df_info_car = pd.read_csv('vehicles_us.csv')
 
 st.header('Info-car  - Análise e Negócios')
 
