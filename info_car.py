@@ -28,15 +28,15 @@ df_fabricante_counts = pd.DataFrame(
     {'fabricante': fabricante_counts.index, 'count': fabricante_counts.values})
 
 # Adicionar botão de histograma 
-hist_button = st.button('Criar Grafico de Histograma')
+disp_button = st.button('Criar Grafico de Disperção')
 
-if hist_button:  # se clicar no botão 
+if disp_button:  # se clicar no botão 
     # escrever  mensagem
     st.write(
-        'Histograma para o conjunto de informacoes de veiculos')
+        'Grafico de Dispersão para o conjunto de informacoes de veiculos')
 
-    # criar  histograma
-    fig = px.histogram(df_info_car, x="mileage")
+    # criar  Grafico de Disperção
+    fig = px.scatter(df_info_car, x="mileage", y="price")
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
